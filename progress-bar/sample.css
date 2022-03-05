@@ -1,0 +1,713 @@
+@charset "UTF-8";
+@import "//fonts.googleapis.com/css?family=Open+Sans";
+
+/* Step Progress Bar TYPE 1 =================================================================================== */
+h1 {
+  margin-bottom: 1.5em;
+  text-align: center;
+}
+
+.container {
+  padding: 5vh 5vw;
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  color: #929292;
+  height: 4rem;
+  margin-bottom: 3em;
+}
+.steps > .step {
+  position: relative;
+  display: table-cell;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6d6875;
+}
+.steps > .step:before {
+  content: attr(data-step);
+  display: block;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 2px solid #e6e6e6;
+  color: #e6e6e6;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  margin-bottom: -4.2rem;
+  line-height: 1.9rem;
+  border-radius: 100%;
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.steps > .step:after {
+  content: "";
+  position: absolute;
+  display: block;
+  background: #e6e6e6;
+  width: 100%;
+  height: 0.125rem;
+  top: 1rem;
+  left: 50%;
+}
+.steps > .step:last-child:after {
+  display: none;
+}
+.steps > .step.is-complete {
+  color: #6d6875;
+}
+.steps > .step.is-complete:before {
+  content: "✓";
+  color: #f68e20;
+  background: #fef0e2;
+  border: 2px solid #f68e20;
+}
+.steps > .step.is-complete:after {
+  background: #f68e20;
+}
+.steps > .step.is-active {
+  font-size: 1.5rem;
+}
+.steps > .step.is-active:before {
+  color: #fff;
+  border: 2px solid #f68e20;
+  background: #f68e20;
+  margin-bottom: -4.9rem;
+}
+
+/* Step Progress Bar TYPE 2 =================================================================================== */
+
+.ol-progress-bar-2 {
+  display: flex;
+  padding: 0;
+  background-color: #dcdcdc;
+  overflow: hidden;
+}
+
+.li-progress-bar-2 {
+  width: 25%;
+  position: relative;
+  height: 130px;
+  padding: 20px 20px 20px 40px;
+  list-style-position: inside;
+  box-sizing: border-box;
+  margin: 0;
+  color: #000032;
+  background-color: #dcdcdc;
+  font-family: arial, helvetica, sans-serif;
+  font-size: 2.5rem;
+  overflow: visible;
+  border-right: 10px solid transparent;
+}
+
+.li-progress-bar-2:before {
+  content: "";
+  position: absolute;
+  left: calc(100% + 14px);
+  top: -20px;
+  height: 0;
+  width: 0;
+  border-bottom: 85px solid transparent;
+  border-top: 85px solid transparent;
+  border-left: 20px solid #fff;
+  z-index: 1;
+}
+
+.li-progress-bar-2:after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 10px);
+  top: -20px;
+  height: 0;
+  width: 0;
+  border-bottom: 85px solid transparent;
+  border-top: 85px solid transparent;
+  border-left: 20px solid #dcdcdc;
+  z-index: 1;
+}
+
+.li-progress-bar-2 a {
+  display: block;
+  position: absolute;
+  left: calc(40px + 2rem);
+  top: 2.1rem;
+  color: #000032;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.li-progress-bar-2 a span {
+  display: block;
+}
+
+.li-progress-bar-2 a strong {
+  display: block;
+  font-size: 0.85em;
+  line-height: 1.8rem;
+}
+
+.li-progress-bar-2.complete {
+  background-color: #000032;
+}
+
+.li-progress-bar-2.complete:after {
+  border-left: 20px solid #000032;
+}
+.li-progress-bar-2.active {
+  background-color: #0096fa;
+}
+.li-progress-bar-2.active:after {
+  border-left: 20px solid #0096fa;
+}
+.li-progress-bar-2.complete,
+.li-progress-bar-2.active {
+  color: #fff;
+}
+.li-progress-bar-2.complete a,
+.li-progress-bar-2.active a {
+  color: #fff;
+}
+
+/*  Step Progress Bar TYPE 3  =================================================================================== */
+
+.sbs-progress {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.sbs-progress-item {
+  flex-grow: 1;
+  flex-basis: 100%;
+  margin: 0 6px 0 5px;
+  position: relative;
+  min-width: 1.992%;
+}
+.sbs-progress-item:before,
+.sbs-progress-item:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 0;
+  z-index: 0;
+  border-style: solid;
+}
+.sbs-progress-item:before {
+  width: 1px;
+  left: -11px;
+  border-width: 25px 0px 25px 10px;
+  border-color: #ddd rgba(0, 0, 0, 0) #ddd rgba(0, 0, 0, 0);
+}
+.sbs-progress-item:after {
+  width: 0;
+  right: -11px;
+  border-width: 25px 0px 25px 11px;
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #ddd;
+}
+.sbs-progress-item .item-text {
+  display: block;
+  position: relative;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 15px 15px 20px;
+  z-index: 1;
+  background: #fff;
+}
+.sbs-progress-item .item-text:before,
+.sbs-progress-item .item-text:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 0;
+  z-index: 2;
+  border-style: solid;
+}
+.sbs-progress-item .item-text:before {
+  width: 1px;
+  left: -10px;
+  border-width: 24px 0px 24px 10px;
+  border-color: #fff rgba(0, 0, 0, 0) #fff rgba(0, 0, 0, 0);
+}
+.sbs-progress-item .item-text:after {
+  width: 0;
+  right: -10px;
+  border-width: 24px 0px 24px 10px;
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #fff;
+}
+.sbs-progress-item:first-child {
+  margin-left: 0;
+}
+.sbs-progress-item:first-child:before {
+  display: none;
+}
+.sbs-progress-item:first-child .item-text:after {
+  border-left-color: #dcdcdc;
+}
+
+.sbs-progress-item:first-child .item-text {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-left: 1px solid #ddd;
+  padding-left: 25px;
+  background-color: #dcdcdc;
+}
+.sbs-progress-item:first-child .item-text:before {
+  display: none;
+}
+.sbs-progress-item:last-child {
+  margin-right: 0;
+}
+.sbs-progress-item:last-child:after {
+  display: none;
+}
+.sbs-progress-item:last-child .item-text {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-right: 1px solid #ddd;
+  padding-right: 25px;
+}
+.sbs-progress-item:last-child .item-text:after {
+  display: none;
+}
+.sbs-progress-item.is-completed:before {
+  border-top-color: #aadd00;
+  border-bottom-color: #aadd00;
+}
+.sbs-progress-item.is-completed:after {
+  border-left-color: #aadd00;
+}
+.sbs-progress-item.is-completed .item-text {
+  background-color: #aadd00;
+  color: #fff;
+  border-top-color: #aadd00;
+  border-bottom-color: #aadd00;
+}
+.sbs-progress-item.is-completed .item-text:before {
+  border-top-color: #aadd00;
+  border-bottom-color: #aadd00;
+}
+.sbs-progress-item.is-completed .item-text:after {
+  border-left-color: #aadd00;
+}
+.sbs-progress-item.is-completed:first-child .item-text {
+  border-left-color: #aadd00;
+}
+.sbs-progress-item.is-completed:last-child .item-text {
+  border-right-color: #aadd00;
+}
+.sbs-progress-item.is-invalid:before {
+  border-top-color: #ee0011;
+  border-bottom-color: #ee0011;
+}
+.sbs-progress-item.is-invalid:after {
+  border-left-color: #ee0011;
+}
+.sbs-progress-item.is-invalid .item-text {
+  background-color: #ee0011;
+  color: #fff;
+  border-top-color: #ee0011;
+  border-bottom-color: #ee0011;
+}
+.sbs-progress-item.is-invalid .item-text:before {
+  border-top-color: #ee0011;
+  border-bottom-color: #ee0011;
+}
+.sbs-progress-item.is-invalid .item-text:after {
+  border-left-color: #ee0011;
+}
+.sbs-progress-item.is-invalid:first-child .item-text {
+  border-left-color: #ee0011;
+}
+.sbs-progress-item.is-invalid:last-child .item-text {
+  border-right-color: #ee0011;
+}
+
+.item-name {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*  Step Progress Bar TYPE 4  =================================================================================== */
+.workflow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step {
+  text-align: center;
+  display: inline-block;
+  position: relative;
+}
+.step .icon {
+  font-size: 20px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  line-height: 40px;
+  transition: all 0.3s;
+}
+.step:hover .icon {
+  box-shadow: 0px 0px 10px #000;
+}
+.step .number {
+  width: 150px;
+  background: #639;
+  height: 30px;
+  margin: 20px -3px;
+  position: relative;
+}
+.step .step-num1 {
+  border: 7px solid #fff;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.step .step-num1 .step-num2 {
+  color: #639;
+  background: #fff;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  line-height: 25px;
+  border: 10px solid #639;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.step:first-of-type .number::before {
+  border-width: 15px;
+  border-style: solid;
+  border-color: #639 #639 #639 #fff;
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+}
+
+.step:last-of-type .number:after {
+  border-width: 15px;
+  border-style: solid;
+  border-color: #fff #fff #fff #639;
+  display: block;
+  content: "";
+  position: absolute;
+  right: 0;
+}
+
+/*  Step Progress Bar TYPE 5  =================================================================================== */
+:root {
+  /* Custom editor colors */
+  --color-theme-primary: #1c2833;
+  --color-theme-secondary: #05f283;
+  --color-theme-secondary-2: #d00070;
+  --color-theme-secondary-3: #0084f8;
+  --color-theme-secondary-4: #ffd100;
+
+  --color-theme-grey: #95a5a6;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+#stepProgressBar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+}
+.step-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+.step-vertical {
+  margin-left: 3rem;
+  color: var(--color-theme-primary);
+  margin-bottom: 3em;
+  padding: 1em;
+}
+.step-vertical h3 {
+  margin-top: 0.5em;
+}
+.step-text {
+  margin-bottom: 1em;
+  color: var(--color-theme-primary);
+  text-align: left;
+}
+
+.bullet {
+  text-align: center;
+  border: 0.5rem solid var(--color-theme-grey);
+  height: 2em;
+  width: 2em;
+  border-radius: 100%;
+  color: var(--color-theme-grey);
+  display: inline-block;
+  position: relative;
+  font-weight: 600;
+  transition: background-color 500ms;
+  line-height: 2;
+  z-index: 10;
+}
+.bullet::before {
+  position: relative;
+  content: "";
+  width: 0.5em;
+  left: calc(50% - 0.25em);
+  top: 2.5em;
+  position: absolute;
+  transition: height 2s;
+  z-index: 0;
+  background-color: var(--color-theme-grey);
+}
+.step-container:last-child .bullet::before {
+  content: none;
+}
+.completed .bullet {
+  border: 0.5em solid var(--color-theme-secondary);
+}
+.completed .bullet,
+.completed .bullet::before {
+  color: white;
+  background-color: var(--color-theme-secondary);
+}
+.completed .bullet:before {
+  background-color: var(--color-theme-secondary);
+}
+.current .bullet {
+  color: var(--color-theme-secondary);
+  border-color: var(--color-theme-secondary);
+}
+.current .bullet:before {
+  background-color: var(--color-theme-grey);
+}
+.bullet::before,
+.completed .bullet::before,
+.current .bullet::before {
+  bottom: 0;
+  content: "";
+  height: 500%;
+}
+.current .bullet::before {
+  height: 520%;
+}
+.fa {
+  font-size: 1.5em;
+  margin: 0.25em;
+}
+.completed .bullet span,
+.current .bullet span {
+  display: none;
+}
+
+.current .step-vertical {
+  border-top-left-radius: 0;
+  border: 0.5em solid var(--color-theme-secondary);
+  position: relative;
+  margin-top: 1em;
+}
+
+.current .step-vertical::before {
+  border-left: transparent;
+  content: "";
+  display: block;
+  border-style: solid;
+  position: absolute;
+  top: -0.5em;
+  bottom: -10px;
+  left: -2em;
+  border-width: 2em;
+  margin: 0;
+  border-right: transparent;
+  border-bottom: transparent;
+  border-top-color: var(--color-theme-secondary);
+}
+.steps__number:before {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  top: 16px;
+  left: 0;
+  background: #e8e8e8;
+  content: "";
+}
+
+/*  Step Progress Bar TYPE 6  =================================================================================== */
+svg {
+  width: 200px;
+  height: 200px;
+  transform: rotate(-90deg);
+  overflow: initial;
+}
+
+circle {
+  stroke-width: 20px;
+  fill: none;
+}
+circle:nth-child(1) {
+  stroke: #e6e6e6;
+}
+circle:nth-child(2) {
+  stroke: #f00;
+  position: relative;
+  z-index: 1;
+}
+circle:nth-child(2) {
+  stroke-dashoffset: calc(100 * 6);
+  stroke-dasharray: calc(100 * 6);
+  stroke-dashoffset: calc((100 * 6) - ((100 * 6) * 90) / 100);
+  stroke-position: inside;
+}
+.circle_box {
+  font-size: 36px;
+  color: #000;
+  text-align: center;
+}
+.circle_box div {
+  position: relative;
+}
+.circle_box span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  font-size: 40px;
+}
+
+/*  Step Progress Bar TYPE 7 ============================================================================= */
+
+.container .progress {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.progress {
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25),
+    0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25),
+    0 1px rgba(255, 255, 255, 0.08);
+}
+
+.progress-bar {
+  height: 16px;
+  border-radius: 4px;
+  background-image: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.05)
+  );
+  background-image: -moz-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.05)
+  );
+  background-image: -o-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.05)
+  );
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.05)
+  );
+  -webkit-transition: 0.4s linear;
+  -moz-transition: 0.4s linear;
+  -o-transition: 0.4s linear;
+  transition: 0.4s linear;
+  -webkit-transition-property: width, background-color;
+  -moz-transition-property: width, background-color;
+  -o-transition-property: width, background-color;
+  transition-property: width, background-color;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25),
+    inset 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25),
+    inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/*
+ * Note: using adjacent or general sibling selectors combined with
+ *       pseudo classes doesn't work in Safari 5.0 and Chrome 12.
+ *       See this article for more info and a potential fix:
+ *       https://css-tricks.com/webkit-sibling-bug/
+ */
+
+#five:checked ~ .progress > .progress-bar {
+  width: 5%;
+  background-color: #f63a0f;
+}
+
+#twentyfive:checked ~ .progress > .progress-bar {
+  width: 25%;
+  background-color: #f27011;
+}
+
+#fifty:checked ~ .progress > .progress-bar {
+  width: 50%;
+  background-color: #f2b01e;
+}
+
+#seventyfive:checked ~ .progress > .progress-bar {
+  width: 75%;
+  background-color: #f2d31b;
+}
+
+#onehundred:checked ~ .progress > .progress-bar {
+  width: 100%;
+  background-color: #86e01e;
+}
+
+.radio {
+  display: none;
+}
+
+.label {
+  display: inline-block;
+  margin: 0 5px 20px;
+  padding: 3px 8px;
+  color: #aaa;
+  text-shadow: 0 1px black;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.radio:checked + .label {
+  color: white;
+  background: rgba(0, 0, 0, 0.25);
+}
